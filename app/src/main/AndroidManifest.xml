@@ -13,6 +13,9 @@
         android:theme="@style/MyThemeNoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".IssueListActivity"
+            android:exported="false" />
+        <activity
             android:name=".RoomChangeRequestActivity"
             android:exported="false" />
         <activity
