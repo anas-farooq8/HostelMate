@@ -13,6 +13,9 @@
         android:theme="@style/MyThemeNoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".AvailableRoomActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateIssueActivity"
             android:exported="false" />
         <activity
