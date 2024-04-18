@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#287F4D</color>
+    <color name="light_green">#24C809</color>
     <color name="hint_color">#9C9C9C</color>
     <color name="tap_color">#E5E4E2</color>
 </resources>
