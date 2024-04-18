@@ -5,16 +5,30 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.and.hostelmate.databinding.ActivityCreateIssueBinding
 
 class CreateIssueActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCreateIssueBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_create_issue)
+        binding = ActivityCreateIssueBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // set the tool bar to occupy the camera space too
+        val toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+
+        if(supportActionBar != null){
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        }
+
+        toolbar.title = "Create Issue"
+
     }
 }

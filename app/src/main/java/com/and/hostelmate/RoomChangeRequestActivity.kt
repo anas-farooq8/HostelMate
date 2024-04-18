@@ -5,20 +5,21 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.and.hostelmate.databinding.ActivityAvailableRoomBinding
+import com.and.hostelmate.databinding.ActivityRoomChangeBinding
 
-class AvailableRoomActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAvailableRoomBinding
+class RoomChangeRequestActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRoomChangeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityAvailableRoomBinding.inflate(layoutInflater)
+        binding = ActivityRoomChangeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
 
         // set the tool bar to occupy the camera space too
         val toolbar = binding.toolbar
@@ -28,7 +29,8 @@ class AvailableRoomActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
-        toolbar.title = "Available Rooms"
+        toolbar.title = "Room Change Request"
+
 
     }
 }
