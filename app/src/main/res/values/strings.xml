@@ -13,6 +13,9 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="PROFILE"><b>PROFILE</b></string>
+    <string name="boldemail"><b>Email:</b></string>
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -50,4 +53,38 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="enter_username">Enter Username</string>
+    <string name="anushka_farooq"><b>ANUSHKA FAROOQ</b></string>
+    <string name="block_a">BLOCK NO: A</string>
+    <string name="room_no_203">ROOM NO: 203</string>
+    <string name="anushka321_gmail_com">Anushka321@gmail.com</string>
+    <string name="anushka737">Anushka737</string>
+    <string name="_0330_1234567">0330-1234567</string>
+    <string name="save">SAVE</string>
+    <string name="current_room"><b>Current Block and Room No.</b></string>
+    <string name="floor_no_1st">FLOOR NO: 1st</string>
+    <string name="current_floor"><b>Current Floor</b></string>
+    <string name="new_block_and_room_no"><b>New Block and Room No.</b></string>
+    <string name="reason_for_change"><b>Reason For Change</b></string>
+    <string name="write_your_reason">WRITE YOUR REASON</string>
+    <string name="block_no"><b>BLOCK NO.</b></string>
+    <string name="room_no"><b>ROOM NO.</b></string>
+    <string name="phno"><b>Phno.</b></string>
+    <string name="problem">Problem:</string>
+    <string name="new_floor">New Floor</string>
+    <string name="search">Search</string>
+    <string name="floor">FLOOR NO.</string>
+    <string name="capacity_4">CAPACITY: 2</string>
+    <string name="type_4_person">TYPE: 4 person</string>
+    <string name="price_rs_16_500">PRICE: RS. 16,500</string>
+    <string name="title_activity_room_change_request">RoomChangeRequestActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="capacity">CAPACITY.</string>
 </resources>
