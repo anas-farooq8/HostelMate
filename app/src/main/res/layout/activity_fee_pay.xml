@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FeePayActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/green"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="Users List"
+            app:titleMarginStart="8dp"
+            app:titleTextColor="@color/white">
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/person_1"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_corner"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/constraintLayout1">
+
+            <TextView
+                android:id="@+id/tt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="User's Info:"
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="20dp"/>
+
+
+            <TextView
+                android:id="@+id/t1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="NAME: "
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tt1"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/t2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Nouman Ahmed"
+                android:textStyle="bold"
+                android:textColor="#24c809"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/t1"
+                app:layout_constraintTop_toTopOf="@id/t1" />
+
+            <TextView
+                android:id="@+id/t3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/t1"
+                android:text="ROOM NO: "
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/t1"  />
+
+            <TextView
+                android:id="@+id/t4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="204"
+                android:textStyle="bold"
+                android:textColor="#24c809"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/t3"
+                app:layout_constraintTop_toTopOf="@id/t3" />
+
+            <TextView
+                android:id="@+id/t5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/t1"
+                android:text="BLOCK NO: "
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/t3"  />
+            <TextView
+                android:id="@+id/t6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="A"
+                android:textStyle="bold"
+                android:textColor="#24c809"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/t5"
+                app:layout_constraintTop_toTopOf="@id/t5" />
+
+            <TextView
+                android:id="@+id/t7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/t1"
+                android:text="Email ID: "
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/t5"  />
+            <TextView
+                android:id="@+id/t8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="NoumanAhmed@gmail.com"
+                android:textStyle="bold"
+                android:textColor="#24c809"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/t7"
+                app:layout_constraintTop_toTopOf="@id/t7" />
+
+            <TextView
+                android:id="@+id/t9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/t1"
+                android:text="PHONE NO: "
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/t7"  />
+            <TextView
+                android:id="@+id/t10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@string/_0330_1234567"
+                android:textStyle="bold"
+                android:textColor="#24c809"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/t9"
+                app:layout_constraintTop_toTopOf="@id/t9" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/t9"
+                android:background="@drawable/black_rounded_corner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp">
+
+                <TextView
+                    android:id="@+id/tt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Payment Details:"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:id="@+id/tt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Room Charges: "
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt2"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Rs. 12000"
+                    android:textStyle="bold"
+                    android:textColor="#24c809"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt2"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Electricity Bill: "
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt3"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/tt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Rs. 1200"
+                    android:textStyle="bold"
+                    android:textColor="#24c809"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt3"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:id="@+id/tt7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Water Bill: "
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt5"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/tt8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Rs. 1200"
+                    android:textStyle="bold"
+                    android:textColor="#24c809"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt5"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:id="@+id/tt9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Maintenance Charges: "
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt7"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/tt10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Rs. 1200"
+                    android:textStyle="bold"
+                    android:textColor="#24c809"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt7"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"/>
+                <TextView
+                    android:id="@+id/tt11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Other Charges: "
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt9"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/tt12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Rs. 0"
+                    android:textStyle="bold"
+                    android:textColor="#24c809"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt9"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/tt13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Pending Fees: "
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt11"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/tt14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Rs. 1100"
+                    android:textStyle="bold"
+                    android:textColor="#24c809"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt11"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"/>
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt14" />
+
+                <TextView
+                    android:id="@+id/tt15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Total Fees: "
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view1"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/tt16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Rs. 16700"
+                    android:textStyle="bold"
+                    android:textColor="#24c809"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view1"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/tt17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Due Date: "
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tt15"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/tt18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23 March 2024"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/tt17"
+                    app:layout_constraintTop_toBottomOf="@id/tt15"
+                    android:layout_marginTop="10dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/constraintLayout2"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Pay By Bank"
+                android:textColor="@color/white"
+                android:background="@drawable/filled_rounded_corner"
+                android:layout_marginStart="20dp"/>
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/constraintLayout2"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Pay By Cash"
+                android:textColor="@color/white"
+                android:background="@drawable/filled_rounded_corner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
