@@ -96,4 +96,14 @@
     <string name="age">Age</string>
     <string name="email1">Email</string>
     <string name="floor_no">Floor No.</string>
+    <string-array name="days_of_week">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
 </resources>

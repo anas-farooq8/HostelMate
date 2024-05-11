@@ -91,7 +91,7 @@
                     android:layout_marginStart="16dp"
                     android:textColor="@color/light_green"
                     android:layout_marginTop="8dp"
-                    android:text="Block No: 1"
+                    android:text="Block No: ..."
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -104,7 +104,7 @@
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="16dp"
-                    android:text="Floor No: 1"
+                    android:text="Floor No: ..."
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/blockNo" />
@@ -117,7 +117,7 @@
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="16dp"
-                    android:text="Room No: 4"
+                    android:text="Room No: ..."
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/floorNo" />

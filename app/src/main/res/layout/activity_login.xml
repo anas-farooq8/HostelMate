@@ -110,12 +110,12 @@
             app:layout_constraintTop_toTopOf="@+id/textView5" />
 
         <TextView
-            android:id="@+id/forgotPassBtn"
+            android:id="@+id/continueAsAGuest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="20dp"
-            android:text="@string/forgot_your_password"
+            android:text="Continue As a Guest!!!"
             android:textColor="@color/green"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +138,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/forgotPassBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/continueAsAGuest" />
 
         <TextView
             android:layout_width="wrap_content"

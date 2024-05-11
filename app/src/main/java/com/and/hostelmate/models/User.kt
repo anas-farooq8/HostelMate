@@ -7,7 +7,7 @@ data class User(
     var name: String,
     var age: Int,
     val cnic: String,
-    var image: ByteArray?,
+    var image: String?,
     var phoneNo: String,
     var homeAddress: String,
     val fatherCnic: String,

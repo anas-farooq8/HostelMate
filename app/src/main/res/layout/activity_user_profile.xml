@@ -61,7 +61,7 @@
             android:layout_marginTop="10dp"
 
             android:foreground="@drawable/ripple_circle"
-            android:src="@drawable/ethan_lee"
+            android:src="@drawable/ic_launcher_foreground"
             app:civ_border_color="@color/white"
             app:civ_border_width="1dp"
             app:layout_constraintBottom_toTopOf="@+id/Name"

@@ -1,15 +1,12 @@
 package com.and.hostelmate
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.ImageDecoder
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Base64
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -26,11 +23,13 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.and.hostelmate.models.User
 import com.squareup.picasso.Picasso
-import java.io.ByteArrayOutputStream
+import java.util.UUID
 
+@Suppress("DEPRECATION")
 class UserProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserProfileBinding
-    private var imageUri: Uri? = null
+    private var imagePath: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -84,7 +83,11 @@ class UserProfileActivity : AppCompatActivity() {
         }
 
         binding.camera.setOnClickListener {
-            checkStoragePermission()
+            if (isStoragePermissionGranted()) {
+                openGallery()
+            } else {
+                checkStoragePermission()
+            }
         }
     }
 
@@ -96,12 +99,31 @@ class UserProfileActivity : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK && requestCode == MainActivity.PICK_IMAGE_REQUEST) {
-            imageUri = data?.data
-            binding.profileImageView.setImageURI(imageUri)  // Set image directly or use Picasso for more options
+        if (requestCode == MainActivity.PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            val imageUri = data.data // URI of selected image
 
-            // Using Picasso to load
-            Picasso.get().load(imageUri).into(binding.profileImageView)
+            imageUri?.let { uri ->
+                val storageReference = MainActivity.database.getReference("users/profile_images/${UUID.randomUUID()}.jpg")
+                val uploadTask = storageReference.putFile(uri)
+                uploadTask.continueWithTask { task ->
+                    if (!task.isSuccessful) {
+                        task.exception?.let {
+                            throw it
+                        }
+                    }
+                    storageReference.downloadUrl
+                }.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val downloadUri = task.result
+                        imagePath = downloadUri.toString() // Save the download URL in the Realtime Database
+                        Toast.makeText(this, "Image uploaded successfully", Toast.LENGTH_SHORT).show()
+                        loadProfileImage(imagePath!!)
+                    } else {
+                        // Handle failures
+                        Toast.makeText(this, "Upload failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
     }
 
@@ -123,21 +145,21 @@ class UserProfileActivity : AppCompatActivity() {
     }
 
     private fun displayUserDetails() {
-        loadProfileImage()
+        loadProfileImage(MainActivity.user.image!!)
         binding.Name.setText(MainActivity.user.name)
         binding.emailText.setText(MainActivity.user.email)
         binding.cnic.setText(MainActivity.user.cnic)
         binding.Age.setText(MainActivity.user.age.toString())
         binding.PhoNo.setText(MainActivity.user.phoneNo)
         binding.Address.setText(MainActivity.user.homeAddress)
+        imagePath = MainActivity.user.image
     }
 
-    private fun loadProfileImage() {
-/*        Picasso.get()
-            .load(MainActivity.user.image)
-            .placeholder(R.drawable.ic_launcher_foreground)
-            .error(R.drawable.circled_background)
-            .into(binding.profileImageView)*/
+    private fun loadProfileImage(imagePath: String) {
+        // if image path is not null, load the image using Picasso
+        if (imagePath.isNotEmpty()) {
+            Picasso.get().load(imagePath).into(binding.profileImageView)
+        }
     }
 
     private fun updateProfile() {
@@ -146,20 +168,23 @@ class UserProfileActivity : AppCompatActivity() {
 
         val stringRequest = object : StringRequest(
             Method.POST, url,
-            Response.Listener { _ ->
+            Response.Listener { response ->
+                Log.d("UserProfileActivity", "Server Response: $response")
+                // Update local user object on successful update
                 MainActivity.user.apply {
                     name = binding.Name.text.toString()
                     phoneNo = binding.PhoNo.text.toString()
                     homeAddress = binding.Address.text.toString()
                     age = binding.Age.text.toString().toInt()
+                    image = imagePath  // Update the image in the user object
                 }
-                // Display success message
+                // Notify user of success
                 Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show()
-                // Finish the current activity
                 finish()
             },
             Response.ErrorListener { error ->
-                Log.e("UpdateProfile", "Error updating profile: ${error.message}")
+                Log.e("UserProfileActivity", "Error updating profile: ${error.message}")
+                Toast.makeText(this, "Failed to update profile", Toast.LENGTH_SHORT).show()
             }
         ) {
             override fun getParams(): Map<String, String> {
@@ -169,13 +194,13 @@ class UserProfileActivity : AppCompatActivity() {
                 params["phone_no"] = binding.PhoNo.text.toString()
                 params["home_address"] = binding.Address.text.toString()
                 params["age"] = binding.Age.text.toString()
-                val imageString = encodeImageToBase64(imageUri!!)  // Make sure to define imageUri properly where you handle onActivityResult
-                params["image"] = imageString
+                params["image_address"] = imagePath.toString()
                 return params
             }
         }
         queue.add(stringRequest)
     }
+
 
     private fun showLogoutConfirmationDialog() {
         val builder = AlertDialog.Builder(this)
@@ -198,28 +223,20 @@ class UserProfileActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun getBitmapFromUri(uri: Uri): Bitmap {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            val source = ImageDecoder.createSource(this.contentResolver, uri)
-            ImageDecoder.decodeBitmap(source)
+    private fun isStoragePermissionGranted(): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // For Android 13 (API level 33) and above, use READ_MEDIA_IMAGES for more specific access
+            ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED
         } else {
-            MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+            // For older versions, check for READ_EXTERNAL_STORAGE permission
+            ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
         }
     }
-
-    private fun encodeImageToBase64(imageUri: Uri): String {
-        val bitmap = getBitmapFromUri(imageUri)
-        ByteArrayOutputStream().apply {
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, this)
-            val byteArray = this.toByteArray()
-            return Base64.encodeToString(byteArray, Base64.DEFAULT)
-        }
-    }
-
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == MainActivity.REQUEST_STORAGE_PERMISSION && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show()
             openGallery()
         } else {
             Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()

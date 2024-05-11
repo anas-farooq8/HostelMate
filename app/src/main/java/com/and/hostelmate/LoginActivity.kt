@@ -45,6 +45,12 @@ class LoginActivity : AppCompatActivity() {
 
             loginUser(email, password)
         }
+
+        // Continue as a Guest
+        binding.continueAsAGuest.setOnClickListener {
+            val intent = Intent(this@LoginActivity, MenuActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loginUser(email: String, password: String) {

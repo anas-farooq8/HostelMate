@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -12,11 +13,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.and.hostelmate.databinding.ActivityMainBinding
+import com.and.hostelmate.models.MenuItem
 import com.and.hostelmate.models.User
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
 
 interface UserDataCallback {
     fun onDataReady(user: User)
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     companion object{
         const val IP: String = "192.168.100.6"
         var auth: FirebaseAuth = FirebaseAuth.getInstance()
+        var database: FirebaseStorage = FirebaseStorage.getInstance()
 
         const val PREFS_NAME = "MyPrefsFile"
         const val LOGIN_STATUS_KEY = "loginStatus"
@@ -36,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         // make a user object
         var user: User = User()
+        var menuItems: List<MenuItem> = emptyList()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                         name = response.getString("name"),
                         age = response.getInt("age"),
                         cnic = response.getString("cnic"),
-                        image = null,
+                        image = response.getString("image_address"),
                         phoneNo = response.getString("phone_no"),
                         homeAddress = response.getString("home_address"),
                         fatherCnic = response.getString("father_cnic"),
@@ -119,4 +124,5 @@ class MainActivity : AppCompatActivity() {
         )
         Volley.newRequestQueue(this).add(jsonObjectRequest)
     }
+
 }

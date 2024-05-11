@@ -28,7 +28,7 @@ class AdminDashboardActivity : AppCompatActivity() {
             insets
         }
 
-        Toast.makeText(this, MainActivity.user.name, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, MainActivity.user.image.toString(), Toast.LENGTH_SHORT).show()
 
         // set the tool bar to occupy the camera space too
         val toolbar = binding.toolbar
@@ -50,6 +50,4 @@ class AdminDashboardActivity : AppCompatActivity() {
         }
 
     }
-
-
 }
