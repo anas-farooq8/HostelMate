@@ -2,48 +2,42 @@ package com.and.hostelmate
 
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.volley.Request
-import com.android.volley.toolbox.Volley
-import com.and.hostelmate.databinding.ActivityMenuBinding
+import com.and.hostelmate.databinding.FragmentMenuBinding
 import com.and.hostelmate.models.MenuItem
 import com.android.volley.toolbox.JsonArrayRequest
-import org.json.JSONArray
+import com.android.volley.toolbox.Volley
 import org.json.JSONException
+import com.android.volley.Request
+import org.json.JSONArray
 
-class MenuActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMenuBinding
+class MenuFragment : Fragment() {
+    private var _binding: FragmentMenuBinding? = null
+    private val binding get() = _binding!!
     private lateinit var menuItemsAdapter: MenuItemsAdapter
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentMenuBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        binding = ActivityMenuBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        fetchMenuItems()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupViews()
+        fetchMenuItems()
     }
 
     private fun setupViews() {
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.toolbar.title = "Menu"
-
-        menuItemsAdapter = MenuItemsAdapter(MainActivity.menuItems, this)
-        binding.recyclerViewMenu.layoutManager = LinearLayoutManager(this)
+        // Assume MainActivity is handling the toolbar
+        menuItemsAdapter = MenuItemsAdapter(MainActivity.menuItems, requireActivity())
+        binding.recyclerViewMenu.layoutManager = LinearLayoutManager(context)
         binding.recyclerViewMenu.adapter = menuItemsAdapter
 
         binding.spinnerDays.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -62,20 +56,18 @@ class MenuActivity : AppCompatActivity() {
             { response ->
                 try {
                     MainActivity.menuItems = parseMenuItems(response)
-                    // Should only display the monday's menu by default
-                    updateRecyclerView("Monday")
+                    updateRecyclerView("Monday")  // Update to display Monday's menu by default
                 } catch (e: JSONException) {
-                    Log.e("MenuActivity", "Error parsing menu items", e)
+                    Log.e("MenuFragment", "Error parsing menu items", e)
                 }
             },
             { error ->
-                Log.e("MenuActivity", "Error: ${error.localizedMessage}")
+                Log.e("MenuFragment", "Error: ${error.localizedMessage}")
             }
         )
-        Volley.newRequestQueue(this).add(jsonArrayRequest)
+        Volley.newRequestQueue(requireContext()).add(jsonArrayRequest)
     }
 
-    // Parse the JSON response and return a list of MenuItems
     private fun parseMenuItems(jsonArray: JSONArray): List<MenuItem> {
         val itemsList = mutableListOf<MenuItem>()
         for (i in 0 until jsonArray.length()) {
@@ -94,20 +86,13 @@ class MenuActivity : AppCompatActivity() {
         }
         return itemsList
     }
-
     private fun updateRecyclerView(selectedDay: String) {
         val filteredItems = MainActivity.menuItems.filter { it.day == selectedDay }
         menuItemsAdapter.updateItems(filteredItems)
     }
 
-    // Handles the Back Btn
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -24,19 +24,5 @@
     </style>
 
 
-    <!-- Action Bar -->
-    <!--    <style name="toolbartex" parent="TextAppearance.MaterialComponents.Button">
-        <item name="android:textSize">16dp</item>
-    </style>
-
-    <style name="Foxandroid.Toolbar" parent="Widget.AppCompat.Toolbar">
-        <item name="android:background">@color/green</item>
-        <item name="titleTextColor">@color/white</item>
-        <item name="theme">@style/Base.Theme.HostelMate</item>
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="titleTextAppearance">@style/toolbartex</item>
-    </style>-->
-
-
     <style name="Theme.HostelMate" parent="Base.Theme.HostelMate" />
 </resources>

@@ -9,11 +9,12 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.and.hostelmate.models.MenuItem
 import com.squareup.picasso.Picasso
 
-class MenuItemsAdapter(private var menuItemsList: List<MenuItem>, private val context: MenuActivity) : RecyclerView.Adapter<MenuItemsAdapter.MenuItemsViewHolder>() {
+class MenuItemsAdapter(private var menuItemsList: List<MenuItem>, private val context: FragmentActivity) : RecyclerView.Adapter<MenuItemsAdapter.MenuItemsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuItemsViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.menu_item_card, parent, false)

@@ -26,7 +26,6 @@
             app:titleMarginStart="8dp"
             app:titleTextColor="@color/white">
 
-            <!-- Circular ImageView for profile picture -->
             <View
                 android:id="@+id/logoutButton"
                 android:layout_width="25dp"
@@ -50,7 +49,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
         <de.hdodenhof.circleimageview.CircleImageView

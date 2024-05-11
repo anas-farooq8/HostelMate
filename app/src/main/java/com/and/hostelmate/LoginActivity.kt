@@ -30,7 +30,6 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-
         binding.loginBtn.setOnClickListener {
             val email = binding.emailText.text.toString()
             val password = binding.passwordText.text.toString()
@@ -48,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
 
         // Continue as a Guest
         binding.continueAsAGuest.setOnClickListener {
-            val intent = Intent(this@LoginActivity, MenuActivity::class.java)
+            val intent = Intent(this@LoginActivity, GuestActivity::class.java)
             startActivity(intent)
         }
     }
