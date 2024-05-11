@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         const val PREFS_NAME = "MyPrefsFile"
         const val LOGIN_STATUS_KEY = "loginStatus"
+        const val PICK_IMAGE_REQUEST = 102
+        const val REQUEST_STORAGE_PERMISSION = 101
 
         // make a user object
         var user: User = User()

@@ -32,12 +32,6 @@ class AdminDashboardActivity : AppCompatActivity() {
 
         // set the tool bar to occupy the camera space too
         val toolbar = binding.toolbar
-        setSupportActionBar(toolbar)
-
-        if(supportActionBar != null){
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        }
-
         toolbar.title = "Dashboard"
 
         val profileImageView = binding.profileImageView
