@@ -88,4 +88,12 @@
     <string name="login_failed">"Login failed"</string>
     <string name="capacity">CAPACITY.</string>
     <string name="type_something">Type Something...</string>
+    <string name="block_no1">Block No.</string>
+    <string name="room_no1">Room No.</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="cnic">CNIC</string>
+    <string name="address">Address</string>
+    <string name="age">Age</string>
+    <string name="email1">Email</string>
+    <string name="floor_no">Floor No.</string>
 </resources>

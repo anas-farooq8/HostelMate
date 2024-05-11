@@ -28,8 +28,8 @@ class AdminDashboardActivity : AppCompatActivity() {
             insets
         }
 
+        Toast.makeText(this, MainActivity.user.name, Toast.LENGTH_SHORT).show()
 
-/*
         // set the tool bar to occupy the camera space too
         val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
@@ -38,24 +38,22 @@ class AdminDashboardActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
-        toolbar.title = "Admin Dashboard"
-        // toolbar.subtitle = "Hostel Mate"
+        toolbar.title = "Dashboard"
 
         val profileImageView = binding.profileImageView
 
-*/
-/*        // Set OnClickListener to display a toast message when clicked
+        // Set OnClickListener to display a toast message when clicked
         profileImageView.setOnClickListener {
-            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
-        }*//*
-
+            // Proceed to the profile activity
+            val intent = Intent(this, UserProfileActivity::class.java)
+            startActivity(intent)
+        }
 
         // Set OnLongClickListener to display a toast message when held
         profileImageView.setOnLongClickListener {
             Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
             true // return true to indicate that the long click event is consumed
         }
-*/
 
     }
 

@@ -1,15 +1,19 @@
 package com.and.hostelmate
 
-import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.and.hostelmate.databinding.ActivityLoginBinding
+import com.and.hostelmate.models.User
 import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
@@ -17,55 +21,47 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
 
         binding.loginBtn.setOnClickListener {
             val email = binding.emailText.text.toString()
             val password = binding.passwordText.text.toString()
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Email or password is empty", Toast.LENGTH_SHORT).show()
+            if(email.isEmpty()) {
+                binding.emailText.error = "Email is required"
                 return@setOnClickListener
             }
-            login(email, password)
+            if(password.isEmpty()) {
+                binding.passwordText.error = "Password is required"
+                return@setOnClickListener
+            }
+
+            loginUser(email, password)
         }
     }
 
-    private fun login(email: String, password: String) {
-        val url = "http://${Singular.IP}/api/login.php"
-        val params = HashMap<String, String>()
-        params["email"] = email
-        params["password"] = password
+    private fun loginUser(email: String, password: String) {
+        MainActivity.auth.signInWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+                val sharedPreferences = getSharedPreferences(MainActivity.PREFS_NAME, Context.MODE_PRIVATE)
+                sharedPreferences.edit().putBoolean(MainActivity.LOGIN_STATUS_KEY, true).apply()
 
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, url,
-            JSONObject(params as MutableMap<*, *>),
-            { response ->
-                try {
-                    val success = response.getBoolean("success")
-                    val message = response.getString("message")
-                    if (success) {
-                        // Login successful, navigate to the dashboard
-                        val intent = Intent(this, AdminDashboardActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        // Login failed
-                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-                    }
-                } catch (e: Exception) {
-                    // JSON parsing error
-                    Log.e(TAG, "Error parsing response: ${e.message}")
-                    Toast.makeText(this, "Error parsing response", Toast.LENGTH_SHORT).show()
-                }
-                Log.d(TAG, "Response: $response")
-            },
-            { error ->
-                // Volley error
-                Log.e(TAG, "Volley Error: ${error.message}")
-                Toast.makeText(this, "Volley Error: ${error.message}", Toast.LENGTH_SHORT).show()
-            })
+                Toast.makeText(this, "Logged in as ${MainActivity.auth.currentUser?.uid}", Toast.LENGTH_SHORT).show()
 
-        // Add the request to the RequestQueue
-        Volley.newRequestQueue(this).add(jsonObjectRequest)
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, it.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
     }
+
 }
