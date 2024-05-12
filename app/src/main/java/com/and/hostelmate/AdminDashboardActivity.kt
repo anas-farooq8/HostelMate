@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.and.hostelmate.databinding.ActivityAdminDashboardBinding
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
 class AdminDashboardActivity : AppCompatActivity() {
@@ -28,7 +29,7 @@ class AdminDashboardActivity : AppCompatActivity() {
             insets
         }
 
-        Toast.makeText(this, MainActivity.user.image.toString(), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, MainActivity.user.name, Toast.LENGTH_SHORT).show()
 
         // set the tool bar to occupy the camera space too
         val toolbar = binding.toolbar
@@ -43,11 +44,29 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        loadDetails()
+
         // Set OnLongClickListener to display a toast message when held
         profileImageView.setOnLongClickListener {
             Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
             true // return true to indicate that the long click event is consumed
         }
+    }
+
+    private fun loadDetails() {
+        if(MainActivity.accomodation.bedId == -1) {
+            return
+        }
+
+        binding.name.text = MainActivity.user.name
+
+        val no = MainActivity.accomodation.floorNo.times(100)
+            .plus(MainActivity.accomodation.roomNo)
+
+        binding.roomNo.text = "Room No: ${MainActivity.accomodation.blockNo}-$no"
+        binding.bedNo.text = "Bed Id: ${MainActivity.accomodation.bedId}"
+        Picasso.get().load(MainActivity.user.image).into(binding.profileImageView)
 
     }
+
 }

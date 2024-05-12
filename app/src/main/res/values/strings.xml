@@ -139,4 +139,11 @@
     <string name="email_daniyal">daniyal09shaikh@gmail.com</string>
     <string name="phone_daniyal">03403087051</string>
     <string name="our_location">Our Location</string>
+    <string name="problem1">Problem</string>
+    <string name="water_leakage">Water Leakage</string>
+    <string name="enter_your_problem">Enter Your Problem</string>
+    <string name="type_your_experience">Type your experience...</string>
+    <string name="problem_description">Problem Description</string>
+    <string name="upload_file">Upload File</string>
+    <string name="no_file_chosen">No file chosen</string>
 </resources>

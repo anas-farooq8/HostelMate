@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -13,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.and.hostelmate.databinding.ActivityMainBinding
+import com.and.hostelmate.models.Accommodation
 import com.and.hostelmate.models.MenuItem
 import com.and.hostelmate.models.User
 import com.android.volley.Request
@@ -20,6 +20,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
+import org.json.JSONException
 
 interface UserDataCallback {
     fun onDataReady(user: User)
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         // make a user object
         var user: User = User()
+        var accomodation: Accommodation = Accommodation()
         var menuItems: List<MenuItem> = emptyList()
 
     }
@@ -63,7 +65,15 @@ class MainActivity : AppCompatActivity() {
                 fetchUserData(it, object : UserDataCallback {
                     override fun onDataReady(user: User) {
                         MainActivity.user = user
-                        navigateToHomeActivity()
+                        fetchBedLocation(accomodation.bedId ?: -1, object : UserDataCallback {
+                            override fun onDataReady(user: User) {
+                                navigateToHomeActivity()
+                            }
+
+                            override fun onDataError(error: String) {
+                                Toast.makeText(this@MainActivity, error, Toast.LENGTH_LONG).show()
+                            }
+                        })
                     }
 
                     override fun onDataError(error: String) {
@@ -112,6 +122,11 @@ class MainActivity : AppCompatActivity() {
                         fatherCnic = response.getString("father_cnic"),
                         fatherPhoneNo = response.getString("father_phone_no")
                     )
+
+                    // Get the bed ID from the response and set it in the User object
+                    val bedId = response.getInt("bed_id")
+                    accomodation.bedId = bedId
+
                     callback.onDataReady(fetchedUser)
                 } catch (e: Exception) {
                     Log.e("UserData", "Error parsing user data", e)
@@ -120,6 +135,39 @@ class MainActivity : AppCompatActivity() {
             },
             { error ->
                 Log.e("UserData", "Error: ${error.localizedMessage}")
+                callback.onDataError("Network error: ${error.localizedMessage}")
+            }
+        )
+        Volley.newRequestQueue(this).add(jsonObjectRequest)
+    }
+
+    private fun fetchBedLocation(bedId: Int, callback: UserDataCallback) {
+        val url = "http://${IP}/api/getBedLocation.php?bed_id=$bedId"
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                try {
+                    val block = response.getString("block")
+                    val floor = response.getInt("floor")
+                    val room = response.getInt("room")
+
+                    // Store in the Accommodation object
+                    accomodation.blockNo = block
+                    accomodation.floorNo = floor
+                    accomodation.roomNo = room
+
+                    // Use block, floor, and room values as needed
+                    Log.d("BedLocation", "Block: $block, Floor: $floor, Room: $room")
+
+                    // Pass the fetched user object to onDataReady
+                    callback.onDataReady(user)
+                } catch (e: JSONException) {
+                    Log.e("BedLocation", "Error parsing bed location data", e)
+                    callback.onDataError("Failed to parse user data")
+                }
+            },
+            { error ->
+                Log.e("BedLocation", "Error: ${error.localizedMessage}")
                 callback.onDataError("Network error: ${error.localizedMessage}")
             }
         )

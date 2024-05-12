@@ -84,43 +84,30 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/blockNo"
+                    android:id="@+id/roomNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginStart="16dp"
                     android:textColor="@color/light_green"
                     android:layout_marginTop="8dp"
-                    android:text="Block No: ..."
+                    android:text="Details: "
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/name" />
 
                 <TextView
-                    android:id="@+id/floorNo"
+                    android:id="@+id/bedNo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/light_green"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="16dp"
-                    android:text="Floor No: ..."
+                    android:text="Bed No: "
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/blockNo" />
-
-                <TextView
-                    android:id="@+id/roomNo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/light_green"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="16dp"
-                    android:text="Room No: ..."
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/floorNo" />
+                    app:layout_constraintTop_toBottomOf="@+id/roomNo" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
@@ -132,11 +119,12 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent">
                     <ImageView
+                        android:id="@+id/profileImage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:importantForAccessibility="no"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/john_cooper"
+                        android:src="@drawable/ic_launcher_foreground"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
