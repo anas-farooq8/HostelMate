@@ -35,9 +35,22 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-
                 android:layout_marginBottom="8dp"
                 android:foreground="@drawable/ripple_circle"
+                android:src="@drawable/ic_launcher_foreground"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1dp" />
+
+            <!-- Circular ImageView for profile picture -->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/notifications"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:foreground="@drawable/ic_notifications"
                 android:src="@drawable/ic_launcher_foreground"
                 app:civ_border_color="@color/white"
                 app:civ_border_width="1dp" />
@@ -164,7 +177,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/avaialRooms"
+                    android:id="@+id/availRooms"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -251,6 +264,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/action1">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/roomChange"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -484,8 +498,22 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/chats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:rippleColor="@color/green"
+        android:backgroundTint="@color/white"
+        app:srcCompat="@drawable/ic_chat"
+        app:fabSize="auto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

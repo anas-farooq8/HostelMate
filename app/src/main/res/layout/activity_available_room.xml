@@ -32,6 +32,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout"
         android:id="@+id/constraintLayout"
         android:background="@drawable/rounded_corner">
@@ -214,7 +216,7 @@
             android:text="BLOCK A"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
@@ -226,7 +228,7 @@
             android:text="@string/capacity_4"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView"
             app:layout_constraintTop_toBottomOf="@id/block" />
         <TextView
@@ -238,7 +240,7 @@
             android:text="@string/type_4_person"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView"
             app:layout_constraintTop_toBottomOf="@id/capacity" />
 
@@ -251,7 +253,7 @@
             android:text="@string/price_rs_16_500"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView"
             app:layout_constraintTop_toBottomOf="@id/type" />
 
@@ -264,7 +266,7 @@
             android:text="ROOM: 103"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView"
             app:layout_constraintTop_toBottomOf="@id/price" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -297,7 +299,7 @@
             android:text="BLOCK A"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView1"
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
@@ -309,7 +311,7 @@
             android:text="@string/capacity_4"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView1"
             app:layout_constraintTop_toBottomOf="@id/block1" />
         <TextView
@@ -321,7 +323,7 @@
             android:text="@string/type_4_person"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView1"
             app:layout_constraintTop_toBottomOf="@id/capacity1" />
 
@@ -334,7 +336,7 @@
             android:text="@string/price_rs_16_500"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView1"
             app:layout_constraintTop_toBottomOf="@id/type1" />
 
@@ -347,7 +349,7 @@
             android:text="ROOM: 202"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/imageView1"
             app:layout_constraintTop_toBottomOf="@id/price1" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,18 +1,20 @@
 package com.and.hostelmate
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.and.hostelmate.databinding.ActivityCreateIssueBinding
+import com.and.hostelmate.databinding.ActivityIssueListBinding
 
 class IssueListActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCreateIssueBinding
+    private lateinit var binding: ActivityIssueListBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityCreateIssueBinding.inflate(layoutInflater)
+        binding = ActivityIssueListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -29,5 +31,17 @@ class IssueListActivity : AppCompatActivity() {
         }
 
         toolbar.title = "User's Issues"
+    }
+
+
+    // Handles the Back Btn
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

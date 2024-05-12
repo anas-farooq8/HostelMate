@@ -49,13 +49,44 @@ class AdminDashboardActivity : AppCompatActivity() {
             true // return true to indicate that the long click event is consumed
         }
 
+        // Notifications
+        binding.notifications.setOnClickListener {
+            val intent = Intent(this, NotificationsActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Chat Activity
+        binding.chats.setOnClickListener {
+            val intent = Intent(this, ChatActivity::class.java)
+            startActivity(intent)
+        }
+
         // All the Activities
+        // Available Rooms
+        binding.availRooms.setOnClickListener {
+            val intent = Intent(this, AvailableRoomActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Issues
         binding.issues.setOnClickListener {
             if(MainActivity.user.role == MainActivity.ROLE_STUDENT) {
                 val intent = Intent(this, CreateIssueActivity::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Only students can create issues", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, IssueListActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        // Room Change Request
+        binding.roomChange.setOnClickListener {
+            if(MainActivity.user.role == MainActivity.ROLE_STUDENT) {
+                val intent = Intent(this, RoomChangeActivity::class.java)
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, RoomChangeRequestActivity::class.java)
+                startActivity(intent)
             }
         }
 
@@ -65,7 +96,7 @@ class AdminDashboardActivity : AppCompatActivity() {
                 val intent = Intent(this, CreateStaffActivity::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Only Admin can access.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Only Admin can access this.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -77,6 +108,16 @@ class AdminDashboardActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, FeeDueListActivity::class.java)
                 startActivity(intent)
+            }
+        }
+
+        // Staff Members
+        binding.staff.setOnClickListener {
+            if(MainActivity.user.role == MainActivity.ROLE_ADMIN) {
+                val intent = Intent(this, UsersListActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Only Admin can access this.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -95,8 +136,6 @@ class AdminDashboardActivity : AppCompatActivity() {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
-
-        // Available Rooms
     }
 
     private fun loadDetails() {

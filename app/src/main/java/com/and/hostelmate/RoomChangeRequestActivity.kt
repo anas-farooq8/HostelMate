@@ -1,18 +1,20 @@
 package com.and.hostelmate
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.and.hostelmate.databinding.ActivityRoomChangeBinding
+import com.and.hostelmate.databinding.ActivityRoomChangeRequestBinding
 
 class RoomChangeRequestActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityRoomChangeBinding
+    private lateinit var binding: ActivityRoomChangeRequestBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityRoomChangeBinding.inflate(layoutInflater)
+        binding = ActivityRoomChangeRequestBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -31,6 +33,17 @@ class RoomChangeRequestActivity : AppCompatActivity() {
 
         toolbar.title = "Room Change Request"
 
+    }
 
+
+    // Handles the Back Btn
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

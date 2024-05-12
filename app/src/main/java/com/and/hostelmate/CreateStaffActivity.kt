@@ -38,6 +38,16 @@ class CreateStaffActivity : AppCompatActivity() {
             insets
         }
 
+        // set the tool bar to occupy the camera space too
+        val toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+
+        if(supportActionBar != null){
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        }
+
+        toolbar.title = "Create Staff"
+
         binding.Add.setOnClickListener {
             val name = binding.Nametext.text.toString()
             val pass = binding.passText.text.toString()
