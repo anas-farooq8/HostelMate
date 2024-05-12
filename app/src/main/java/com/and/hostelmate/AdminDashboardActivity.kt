@@ -2,19 +2,13 @@ package com.and.hostelmate
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.and.hostelmate.databinding.ActivityAdminDashboardBinding
 import com.squareup.picasso.Picasso
-import de.hdodenhof.circleimageview.CircleImageView
 
 class AdminDashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAdminDashboardBinding
@@ -63,17 +57,17 @@ class AdminDashboardActivity : AppCompatActivity() {
     }
 
     private fun loadDetails() {
-        if(MainActivity.accomodation.bedId == -1) {
+        if(MainActivity.accommodation.bedId == -1) {
             return
         }
 
         binding.name.text = MainActivity.user.name
 
-        val no = MainActivity.accomodation.floorNo.times(100)
-            .plus(MainActivity.accomodation.roomNo)
+        val no = MainActivity.accommodation.floorNo.times(100)
+            .plus(MainActivity.accommodation.roomNo)
 
-        binding.roomNo.text = "Room No: ${MainActivity.accomodation.blockNo}-$no"
-        binding.bedNo.text = "Bed Id: ${MainActivity.accomodation.bedId}"
+        binding.roomNo.text = "Room No: ${MainActivity.accommodation.blockNo}-$no"
+        binding.bedNo.text = "Bed Id: ${MainActivity.accommodation.bedId}"
         Picasso.get().load(MainActivity.user.image).into(binding.profileImage)
 
     }

@@ -33,13 +33,18 @@
         android:theme="@style/MyThemeNoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
-        <!--
-             TODO: Before you run your application, you need a Google Maps API key.
-        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBHzSIxHofca1S1qJlePNFZkvh1-kSVrK8" />
+        <activity
+            android:name=".CreateStaffActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".GuestActivity"
@@ -70,8 +75,7 @@
             android:exported="false" />
         <activity
             android:name=".CreateIssueActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".RoomChangeActivity"
             android:exported="false" />
@@ -83,16 +87,10 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

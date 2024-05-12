@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         // make a user object
         var user: User = User()
-        var accomodation: Accommodation = Accommodation()
+        var accommodation: Accommodation = Accommodation()
         var menuItems: List<MenuItem> = emptyList()
 
         // Roles
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 fetchUserData(it, object : UserDataCallback {
                     override fun onDataReady(user: User) {
                         MainActivity.user = user
-                        fetchBedLocation(accomodation.bedId ?: -1, object : UserDataCallback {
+                        fetchBedLocation(accommodation.bedId ?: -1, object : UserDataCallback {
                             override fun onDataReady(user: User) {
                                 navigateToHomeActivity()
                             }
@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 
                     // Get the bed ID from the response and set it in the User object
                     val bedId = response.getInt("bed_id")
-                    accomodation.bedId = bedId
+                    accommodation.bedId = bedId
 
                     callback.onDataReady(fetchedUser)
                 } catch (e: Exception) {
@@ -157,9 +157,9 @@ class MainActivity : AppCompatActivity() {
                     val room = response.getInt("room")
 
                     // Store in the Accommodation object
-                    accomodation.blockNo = block
-                    accomodation.floorNo = floor
-                    accomodation.roomNo = room
+                    accommodation.blockNo = block
+                    accommodation.floorNo = floor
+                    accommodation.roomNo = room
 
                     // Use block, floor, and room values as needed
                     Log.d("BedLocation", "Block: $block, Floor: $floor, Room: $room")
