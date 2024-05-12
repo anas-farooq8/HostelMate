@@ -201,7 +201,6 @@ class UserProfileActivity : AppCompatActivity() {
         queue.add(stringRequest)
     }
 
-
     private fun showLogoutConfirmationDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Logout")

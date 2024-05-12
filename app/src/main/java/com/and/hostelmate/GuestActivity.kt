@@ -1,13 +1,18 @@
 package com.and.hostelmate
 
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowInsetsController
+import androidx.core.view.WindowInsetsCompat
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.and.hostelmate.databinding.ActivityGuestBinding
@@ -18,6 +23,7 @@ class GuestActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     private lateinit var binding: ActivityGuestBinding
     private lateinit var drawerLayout: DrawerLayout
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,24 +42,22 @@ class GuestActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         // set the drawer layout to open and close on the navigation icon
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav)
-
-        // set the drawer layout to open and close on the navigation icon
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         // set the default fragment to the menu fragment
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             replaceFragment(HomeFragment())
-            navigationView.setCheckedItem(R.id.nav_home)
+            binding.navView.setCheckedItem(R.id.nav_home)
         }
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.nav_menu -> replaceFragment(MenuFragment())
-            R.id.nav_login -> finish()
             R.id.nav_home -> replaceFragment(HomeFragment())
+            R.id.nav_menu-> replaceFragment(MenuFragment())
+            R.id.nav_add_request -> replaceFragment(SignUpFragment())
+            R.id.nav_login -> finish()
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
@@ -67,10 +71,10 @@ class GuestActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        super.onBackPressed()
         if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
+            super.onBackPressed()
             onBackPressedDispatcher.onBackPressed()
         }
     }

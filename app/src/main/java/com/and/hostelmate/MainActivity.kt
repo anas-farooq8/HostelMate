@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         // make a user object
         var user: User = User()
         var menuItems: List<MenuItem> = emptyList()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
