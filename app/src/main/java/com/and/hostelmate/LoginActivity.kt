@@ -58,8 +58,6 @@ class LoginActivity : AppCompatActivity() {
                 val sharedPreferences = getSharedPreferences(MainActivity.PREFS_NAME, Context.MODE_PRIVATE)
                 sharedPreferences.edit().putBoolean(MainActivity.LOGIN_STATUS_KEY, true).apply()
 
-                Toast.makeText(this, "Logged in as ${MainActivity.auth.currentUser?.uid}", Toast.LENGTH_SHORT).show()
-
                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                 startActivity(intent)
                 finish()

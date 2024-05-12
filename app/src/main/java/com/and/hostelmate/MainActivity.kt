@@ -70,15 +70,7 @@ class MainActivity : AppCompatActivity() {
                 fetchUserData(it, object : UserDataCallback {
                     override fun onDataReady(user: User) {
                         MainActivity.user = user
-                        fetchBedLocation(accommodation.bedId ?: -1, object : UserDataCallback {
-                            override fun onDataReady(user: User) {
-                                navigateToHomeActivity()
-                            }
-
-                            override fun onDataError(error: String) {
-                                Toast.makeText(this@MainActivity, error, Toast.LENGTH_LONG).show()
-                            }
-                        })
+                        navigateToHomeActivity()
                     }
 
                     override fun onDataError(error: String) {
@@ -129,17 +121,31 @@ class MainActivity : AppCompatActivity() {
                     )
 
                     // Get the bed ID from the response and set it in the User object
-                    val bedId = response.getInt("bed_id")
+                    val bedId = response.optInt("bed_id", -1)
                     accommodation.bedId = bedId
 
-                    callback.onDataReady(fetchedUser)
+                    // Fetch bed location if the user is a student
+                    if (fetchedUser.role == ROLE_STUDENT && bedId != -1) {
+                        fetchBedLocation(bedId, object : UserDataCallback {
+                            override fun onDataReady(user: User) {
+                                callback.onDataReady(fetchedUser)
+                            }
+
+                            override fun onDataError(error: String) {
+                                Log.e("fetchUserData", "Error fetching bed location: $error")
+                                callback.onDataError("Failed to fetch bed location")
+                            }
+                        })
+                    } else {
+                        callback.onDataReady(fetchedUser)
+                    }
                 } catch (e: Exception) {
-                    Log.e("UserData", "Error parsing user data", e)
+                    Log.e("fetchUserData", "Error parsing user data", e)
                     callback.onDataError("Failed to parse user data")
                 }
             },
             { error ->
-                Log.e("UserData", "Error: ${error.localizedMessage}")
+                Log.e("fetchUserData", "Error: ${error.localizedMessage}")
                 callback.onDataError("Network error: ${error.localizedMessage}")
             }
         )
@@ -178,5 +184,4 @@ class MainActivity : AppCompatActivity() {
         )
         Volley.newRequestQueue(this).add(jsonObjectRequest)
     }
-
 }

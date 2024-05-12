@@ -22,7 +22,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -73,7 +72,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/ethan_lee"
+                        android:src="@drawable/anas"
                         app:civ_border_color="@android:color/darker_gray"
                         app:civ_border_width="2dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -131,7 +130,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/john_cooper"
+                        android:src="@drawable/daniyal"
                         app:civ_border_color="@android:color/darker_gray"
                         app:civ_border_width="2dp"
                         app:layout_constraintBottom_toBottomOf="parent"

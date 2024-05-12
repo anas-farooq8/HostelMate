@@ -8,11 +8,14 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.and.hostelmate.databinding.ActivityCreateStaffBinding
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -29,7 +32,11 @@ class CreateStaffActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityCreateStaffBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         binding.Add.setOnClickListener {
             val name = binding.Nametext.text.toString()
@@ -132,6 +139,17 @@ class CreateStaffActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    // Handles the Back Btn
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun loadProfileImage(imagePath: String) {

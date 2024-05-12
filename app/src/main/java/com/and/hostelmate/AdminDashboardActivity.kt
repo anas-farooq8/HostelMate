@@ -23,11 +23,16 @@ class AdminDashboardActivity : AppCompatActivity() {
             insets
         }
 
-        Toast.makeText(this, MainActivity.user.name, Toast.LENGTH_SHORT).show()
+        loadDetails()
 
         // set the tool bar to occupy the camera space too
         val toolbar = binding.toolbar
         toolbar.title = "Dashboard"
+
+        // If the Role is Warden then show.
+        if(MainActivity.user.role == MainActivity.ROLE_WARDEN) {
+            binding.roomNo.text = "Warden"
+        }
 
         val profileImageView = binding.profileImageView
 
@@ -38,37 +43,63 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         // Set OnLongClickListener to display a toast message when held
         profileImageView.setOnLongClickListener {
             Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
             true // return true to indicate that the long click event is consumed
         }
 
-        loadDetails()
-
         // All the Activities
         binding.issues.setOnClickListener {
             if(MainActivity.user.role == MainActivity.ROLE_STUDENT) {
                 val intent = Intent(this, CreateIssueActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Only students can create issues", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Staff Members
+        binding.createStaff.setOnClickListener {
+            if(MainActivity.user.role == MainActivity.ROLE_ADMIN) {
+                val intent = Intent(this, CreateStaffActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Only Admin can access.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Hostel Fees
+        binding.hostelFees.setOnClickListener {
+            if(MainActivity.user.role == MainActivity.ROLE_STUDENT) {
+                val intent = Intent(this, FeePayActivity::class.java)
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, FeeDueListActivity::class.java)
                 startActivity(intent)
             }
         }
     }
 
     private fun loadDetails() {
-        if(MainActivity.accommodation.bedId == -1) {
+        if(MainActivity.accommodation.bedId == -1 && MainActivity.user.role == MainActivity.ROLE_STUDENT) {
             return
         }
 
         binding.name.text = MainActivity.user.name
-
-        val no = MainActivity.accommodation.floorNo.times(100)
-            .plus(MainActivity.accommodation.roomNo)
-
-        binding.roomNo.text = "Room No: ${MainActivity.accommodation.blockNo}-$no"
-        binding.bedNo.text = "Bed Id: ${MainActivity.accommodation.bedId}"
         Picasso.get().load(MainActivity.user.image).into(binding.profileImage)
 
+        if (MainActivity.user.role == MainActivity.ROLE_STUDENT) {
+            val no = MainActivity.accommodation.floorNo.times(100)
+                .plus(MainActivity.accommodation.roomNo)
+
+            binding.roomNo.text = "Room No: ${MainActivity.accommodation.blockNo}-$no"
+            binding.bedNo.text = "Bed Id: ${MainActivity.accommodation.bedId}"
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadDetails()
     }
 }
