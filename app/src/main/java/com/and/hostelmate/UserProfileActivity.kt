@@ -21,6 +21,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.and.hostelmate.models.Accommodation
 import com.and.hostelmate.models.User
 import com.squareup.picasso.Picasso
 import java.util.UUID
@@ -212,6 +213,7 @@ class UserProfileActivity : AppCompatActivity() {
 
             // Resetting the user
             MainActivity.user = User()
+            MainActivity.accommodation = Accommodation()
             Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
             navigateToLogin()
         }

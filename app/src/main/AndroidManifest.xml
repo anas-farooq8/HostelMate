@@ -33,14 +33,20 @@
         android:theme="@style/MyThemeNoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBHzSIxHofca1S1qJlePNFZkvh1-kSVrK8" />
+
+        <activity
+            android:name=".AddStudentsActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".CreateStaffActivity"
-            android:exported="true">
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".GuestActivity"
             android:exported="false" />
@@ -70,7 +76,7 @@
             android:exported="false" />
         <activity
             android:name=".CreateIssueActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".RoomChangeActivity"
             android:exported="false" />
@@ -82,7 +88,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

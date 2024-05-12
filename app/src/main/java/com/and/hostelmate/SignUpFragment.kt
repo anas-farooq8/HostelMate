@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.and.hostelmate.databinding.FragmentSignUpBinding
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -166,8 +167,7 @@ class SignUpFragment : Fragment() {
             Response.Listener { _ ->
                 // Display success message
                 Toast.makeText(requireContext(), "Admission Successfully Requested", Toast.LENGTH_SHORT).show()
-                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
-
+                findNavController().popBackStack()
             },
             Response.ErrorListener { error ->
                 Log.e("SignUp", "Error Requesting Admission: ${error.message}")

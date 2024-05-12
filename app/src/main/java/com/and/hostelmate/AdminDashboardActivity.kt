@@ -79,6 +79,24 @@ class AdminDashboardActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
+        // Add User from the Request
+        binding.addMember.setOnClickListener {
+            if(MainActivity.user.role == MainActivity.ROLE_ADMIN || MainActivity.user.role == MainActivity.ROLE_WARDEN) {
+                val intent = Intent(this, AddStudentsActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Only Admin & Warden can access.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Menu
+        binding.menu.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Available Rooms
     }
 
     private fun loadDetails() {

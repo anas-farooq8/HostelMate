@@ -133,7 +133,6 @@
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -144,266 +143,349 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/actions"
-            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:paddingTop="8dp"
             android:paddingBottom="8dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/action1"
-            android:layout_width="140dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="32dp"
-            android:layout_marginVertical="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/action3"
-            app:layout_constraintEnd_toStartOf="@+id/action2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/action1"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/action3"
+                app:layout_constraintEnd_toStartOf="@+id/action2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imageView"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/avaialRooms"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="24dp"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/room_availability"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Room Availability"
-                    android:textColor="@color/green"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.509"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="24dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/room_availability"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/action2"
-            android:layout_width="140dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="32dp"
-            android:layout_marginVertical="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/action4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/action1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Room Availability"
+                        android:textColor="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.509"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/issues"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/action2"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/action4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/action1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread">
 
-                <ImageView
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/issues"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="24dp"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/all_issues"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="All issues"
-                    android:textColor="@color/green"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="24dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/all_issues"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/action3"
-            android:layout_width="140dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="32dp"
-            android:layout_marginVertical="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/action5"
-            app:layout_constraintEnd_toStartOf="@+id/action4"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/action1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="All issues"
+                        android:textColor="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/action3"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/action5"
+                app:layout_constraintEnd_toStartOf="@+id/action4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/action1">
 
-                <ImageView
-                    android:id="@+id/imageView3"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="24dp"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/change_requests"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Change Request"
-                    android:textColor="@color/green"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="24dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/change_requests"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/action4"
-            android:layout_width="140dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="32dp"
-            android:layout_marginVertical="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/action6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/action3"
-            app:layout_constraintTop_toBottomOf="@+id/action2">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Change Request"
+                        android:textColor="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/createStaff"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/action4"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/action6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/action3"
+                app:layout_constraintTop_toBottomOf="@+id/action2">
 
-                <ImageView
-                    android:id="@+id/imageView4"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/createStaff"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="24dp"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/create_staff"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Create Staff"
-                    android:textColor="@color/green"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.509"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="24dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/create_staff"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/action5"
-            android:layout_width="140dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="32dp"
-            android:layout_marginVertical="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/action6"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/action3">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Create Staff"
+                        android:textColor="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.509"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/hostelFees"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/action5"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="32dp"
+                app:layout_constraintEnd_toStartOf="@+id/action6"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/action3">
 
-                <ImageView
-                    android:id="@+id/imageView5"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/hostelFees"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="24dp"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/hostel_fees"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Hostel Fees"
-                    android:textColor="@color/green"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="24dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/hostel_fees"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/action6"
-            android:layout_width="140dp"
-            android:layout_height="120dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="32dp"
-            android:layout_marginVertical="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/action5"
-            app:layout_constraintTop_toBottomOf="@+id/action4">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Hostel Fees"
+                        android:textColor="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/staff"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/action6"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/action5"
+                app:layout_constraintTop_toBottomOf="@+id/action4">
 
-                <ImageView
-                    android:id="@+id/imageView6"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/staff"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="24dp"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/all_staff"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Staff Member"
-                    android:textColor="@color/green"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="24dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/all_staff"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Staff Member"
+                        android:textColor="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/action7"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/action8"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/action5">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/addMember"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="24dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/all_staff"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Add Member"
+                        android:textColor="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/action8"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:layout_marginVertical="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/action7"
+                app:layout_constraintTop_toBottomOf="@+id/action6">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="24dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/menu_img"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Menu"
+                        android:textColor="@color/green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

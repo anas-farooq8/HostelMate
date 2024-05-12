@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corner"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:id="@+id/constraintLayout1">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="NAME: "
+            android:layout_marginTop="20dp"
+
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+        <EditText
+            android:id="@+id/t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Nouman Ahmed"
+            android:textStyle="bold"
+            android:textColor="#24c809"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/t1"
+            app:layout_constraintTop_toTopOf="@id/t1"
+            android:enabled="false"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/t1" />
+
+        <TextView
+            android:id="@+id/t3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/t1"
+            android:text="Email: "
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/t1"  />
+        <EditText
+            android:id="@+id/t4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="204"
+            android:textStyle="bold"
+            android:textColor="#24c809"
+            android:textSize="15sp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="@id/t3"
+            app:layout_constraintStart_toEndOf="@id/t3"
+            app:layout_constraintTop_toTopOf="@id/t3" />
+
+        <TextView
+            android:id="@+id/t5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/t1"
+            android:text="CNIC: "
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/green"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/t3"  />
+        <EditText
+            android:id="@+id/t6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="A"
+            android:textStyle="bold"
+            android:textColor="#24c809"
+            android:textSize="15sp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="@id/t5"
+            app:layout_constraintStart_toEndOf="@id/t5"
+            app:layout_constraintTop_toTopOf="@id/t5" />
+
+        <TextView
+            android:id="@+id/t7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/t1"
+            android:text="Father's CNIC: "
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/t5"  />
+        <EditText
+            android:id="@+id/t8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="NoumanAhmed@gmail.com"
+            android:textStyle="bold"
+            android:textColor="#24c809"
+            android:textSize="15sp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="@id/t7"
+            app:layout_constraintStart_toEndOf="@id/t7"
+            app:layout_constraintTop_toTopOf="@id/t7" />
+
+        <TextView
+            android:id="@+id/t9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/t1"
+            android:text="Phone No: "
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/green"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/t7"  />
+        <EditText
+            android:id="@+id/t10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/_0330_1234567"
+            android:textStyle="bold"
+            android:enabled="false"
+            android:textColor="#24c809"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/t9"
+            app:layout_constraintStart_toEndOf="@id/t9"
+            app:layout_constraintTop_toTopOf="@id/t9" />
+
+        <TextView
+            android:id="@+id/tt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/t1"
+            android:text="Preferred Room with Beds: "
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/t9"  />
+        <EditText
+            android:id="@+id/tt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Fans not working"
+            android:textStyle="bold"
+            android:textColor="#24c809"
+            android:textSize="15sp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="@id/tt1"
+            app:layout_constraintStart_toEndOf="@id/tt1"
+            app:layout_constraintTop_toTopOf="@id/tt1" />
+
+    <TextView
+        android:id="@+id/tt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tt1"
+        android:text="Assign Room: "
+        android:textStyle="bold"
+
+        android:textColor="@color/green"
+        android:layout_marginTop="30dp"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/tt1"  />
+
+    <Spinner
+        android:id="@+id/RoomAssign"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/input_fields"
+        android:hint="Assign Room"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hint_color"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/tt3"
+        app:layout_constraintBottom_toBottomOf="@id/tt3"
+        app:layout_constraintTop_toTopOf="@id/tt3" />
+
+
+
+        <Button
+            android:id="@+id/accept"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/filled_rounded_corner"
+            android:text="Accept"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+           android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/reject"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/filled_rounded_corner"
+            android:backgroundTint="#FF0606"
+            android:text="Reject"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/RoomAssign"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+

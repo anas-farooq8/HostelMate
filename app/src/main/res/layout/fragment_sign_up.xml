@@ -126,7 +126,7 @@
                     android:background="@drawable/input_fields"
                     android:hint="@string/email1"
                     android:inputType="textEmailAddress"
-                    android:text="anasfarooq8888@gmail.com"
+                    android:text="anas@gmail.com"
                     android:textColor="@color/black"
                     android:textColorHint="@color/hint_color"
                     android:textSize="16sp"

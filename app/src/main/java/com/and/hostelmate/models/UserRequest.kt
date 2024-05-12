@@ -1,6 +1,7 @@
 package com.and.hostelmate.models
 
 data class UserRequest(
+    var id: Int = 0,
     var name: String = "",
     var pass: String = "",
     var email: String = "",
