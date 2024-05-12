@@ -44,12 +44,21 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        loadDetails()
 
         // Set OnLongClickListener to display a toast message when held
         profileImageView.setOnLongClickListener {
             Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
             true // return true to indicate that the long click event is consumed
+        }
+
+        loadDetails()
+
+        // All the Activities
+        binding.issues.setOnClickListener {
+            if(MainActivity.user.role == MainActivity.ROLE_STUDENT) {
+                val intent = Intent(this, CreateIssueActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
@@ -65,8 +74,7 @@ class AdminDashboardActivity : AppCompatActivity() {
 
         binding.roomNo.text = "Room No: ${MainActivity.accomodation.blockNo}-$no"
         binding.bedNo.text = "Bed Id: ${MainActivity.accomodation.bedId}"
-        Picasso.get().load(MainActivity.user.image).into(binding.profileImageView)
+        Picasso.get().load(MainActivity.user.image).into(binding.profileImage)
 
     }
-
 }

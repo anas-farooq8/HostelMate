@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
         var accomodation: Accommodation = Accommodation()
         var menuItems: List<MenuItem> = emptyList()
 
+        // Roles
+        const val ROLE_STUDENT = "student"
+        const val ROLE_ADMIN = "admin"
+        const val ROLE_WARDEN = "warden"
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
