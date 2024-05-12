@@ -17,10 +17,6 @@
             android:icon="@drawable/ic_add_request"
             android:title="Admission Request" />
         <item
-            android:id="@+id/nav_tour"
-            android:icon="@drawable/ic_gallery"
-            android:title="Hostel Tour" />
-        <item
             android:id="@+id/nav_contact"
             android:icon="@drawable/ic_contact"
             android:title="Contact Us" />

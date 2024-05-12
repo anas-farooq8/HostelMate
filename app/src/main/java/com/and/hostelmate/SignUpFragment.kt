@@ -166,6 +166,8 @@ class SignUpFragment : Fragment() {
             Response.Listener { _ ->
                 // Display success message
                 Toast.makeText(requireContext(), "Admission Successfully Requested", Toast.LENGTH_SHORT).show()
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
+
             },
             Response.ErrorListener { error ->
                 Log.e("SignUp", "Error Requesting Admission: ${error.message}")

@@ -33,6 +33,14 @@
         android:theme="@style/MyThemeNoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBHzSIxHofca1S1qJlePNFZkvh1-kSVrK8" />
+
         <activity
             android:name=".GuestActivity"
             android:exported="false" />
@@ -83,9 +91,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="false"/>
     </application>
 
 </manifest>

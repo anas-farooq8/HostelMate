@@ -3,16 +3,11 @@ package com.and.hostelmate
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.view.WindowInsets
-import android.view.WindowInsetsController
-import androidx.core.view.WindowInsetsCompat
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.WindowCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.and.hostelmate.databinding.ActivityGuestBinding
@@ -57,6 +52,7 @@ class GuestActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             R.id.nav_home -> replaceFragment(HomeFragment())
             R.id.nav_menu-> replaceFragment(MenuFragment())
             R.id.nav_add_request -> replaceFragment(SignUpFragment())
+            R.id.nav_contact -> replaceFragment(ContactUsFragment())
             R.id.nav_login -> finish()
         }
         drawerLayout.closeDrawer(GravityCompat.START)

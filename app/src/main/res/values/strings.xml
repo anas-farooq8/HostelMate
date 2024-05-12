@@ -129,5 +129,14 @@
     </string-array>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="title_activity_contact_us">ContactUsActivity</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="contact_details">Contact Details</string>
+    <string name="name_anas">Anas Farooq</string>
+    <string name="email_anas">anasfarooq@gmail.com</string>
+    <string name="phone_anas">03240544338</string>
+    <string name="name_daniyal">Daniyal Ahmed</string>
+    <string name="email_daniyal">daniyal09shaikh@gmail.com</string>
+    <string name="phone_daniyal">03403087051</string>
+    <string name="our_location">Our Location</string>
 </resources>
