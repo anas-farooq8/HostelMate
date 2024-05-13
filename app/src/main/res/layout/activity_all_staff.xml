@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AvailableRoomActivity">
+    tools:context=".AllStaffActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -14,8 +14,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -23,42 +21,18 @@
             android:background="@color/green"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="Room Available"
+            app:title="All Staff Members"
             app:titleMarginStart="8dp"
             app:titleTextColor="@color/white">
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <EditText
-        android:id="@+id/search"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="20dp"
-        android:drawableStart="@drawable/search_24"
-        android:hint="  Search Available Room"
-        android:text="A304"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
-        android:background="@drawable/input_fields"
-        android:imeOptions="actionSearch"
-        android:singleLine="true"/>
-
-
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="20dp"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/constraintLayout"/>-->
-
-
-   <androidx.recyclerview.widget.RecyclerView
-         android:id="@+id/recyclerView1"
-       android:layout_width="match_parent"
-       android:layout_height="0dp"
-       app:layout_constraintTop_toBottomOf="@id/search"
-       app:layout_constraintBottom_toBottomOf="parent"
-       android:layout_marginTop="20dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

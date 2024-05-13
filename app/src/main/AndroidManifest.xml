@@ -34,6 +34,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".AllStaffActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
 
@@ -43,10 +52,10 @@
 
         <activity
             android:name=".AddStudentsActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".CreateStaffActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".GuestActivity"
             android:exported="false" />
@@ -73,7 +82,8 @@
             android:exported="false" />
         <activity
             android:name=".AvailableRoomActivity"
-            android:exported="false" />
+            android:exported="true"/>
+
         <activity
             android:name=".CreateIssueActivity"
             android:exported="false" />
@@ -91,13 +101,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

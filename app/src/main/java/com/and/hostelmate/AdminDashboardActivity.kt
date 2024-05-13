@@ -79,6 +79,13 @@ class AdminDashboardActivity : AppCompatActivity() {
             }
         }
 
+        binding.availRooms.setOnClickListener {
+
+                val intent = Intent(this, AvailableRoomActivity::class.java)
+                startActivity(intent)
+
+        }
+
         // Room Change Request
         binding.roomChange.setOnClickListener {
             if(MainActivity.user.role == MainActivity.ROLE_STUDENT) {

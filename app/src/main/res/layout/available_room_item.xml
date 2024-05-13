@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corner"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:id="@+id/constraintLayout1">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/bed_1"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:text="Block: "
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/blocks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:text="A"
+        app:layout_constraintBottom_toBottomOf="@id/block"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/block"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Roomno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:text="Room No:"
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/block" />
+
+    <TextView
+        android:id="@+id/RoomnoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="5dp"
+        android:text="201"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/Roomno"
+        app:layout_constraintTop_toTopOf="@id/Roomno"
+        app:layout_constraintBottom_toBottomOf="@id/Roomno"/>
+
+        <TextView
+            android:id="@+id/FloorNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:text="Floor: "
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/Roomno" />
+
+    <TextView
+        android:id="@+id/FloorNoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="5dp"
+        android:text="2"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/FloorNo"
+        app:layout_constraintTop_toTopOf="@id/FloorNo"
+        app:layout_constraintBottom_toBottomOf="@id/FloorNo"/>
+
+        <TextView
+            android:id="@+id/avail_beds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:text="Bed ID: "
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/FloorNo" />
+
+    <TextView
+        android:id="@+id/bed_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="5dp"
+        android:text="2"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/avail_beds"
+        app:layout_constraintTop_toTopOf="@id/avail_beds"
+        app:layout_constraintBottom_toBottomOf="@id/avail_beds"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

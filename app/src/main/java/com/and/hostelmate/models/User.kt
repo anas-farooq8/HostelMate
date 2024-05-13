@@ -1,17 +1,17 @@
 package com.and.hostelmate.models
 
 data class User(
-    val id: String,
-    var email: String,
-    var role: String,
-    var name: String,
-    var age: Int,
-    val cnic: String,
-    var image: String?,
-    var phoneNo: String,
-    var homeAddress: String,
-    val fatherCnic: String,
-    val fatherPhoneNo: String,
+    val id: String = "",
+    var email: String = "",
+    var role: String  = "",
+    var name: String  = "",
+    var age: Int = 0,
+    val cnic: String = "",
+    var image: String? = null,
+    var phoneNo: String = "",
+    var homeAddress: String = "",
+    val fatherCnic: String = "",
+    val fatherPhoneNo: String = ""
 ) {
     constructor() : this(
         id = "dummy-id",
